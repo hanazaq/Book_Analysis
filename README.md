@@ -7,3 +7,7 @@ Help readers to find their books according to previous readers' interactions on 
 4_ Charts js: present charts on the website that are easy to read   
 
 ![alt text](https://cv-website-hana.herokuapp.com/static/0.png)
+![alt text](https://cv-website-hana.herokuapp.com/static/1.png)
+![alt text](https://cv-website-hana.herokuapp.com/static/2.png)
+![alt text](https://cv-website-hana.herokuapp.com/static/3.png)
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
