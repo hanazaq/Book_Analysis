@@ -10,4 +10,4 @@ Help readers to find their books according to previous readers' interactions on 
 ![alt text](https://cv-website-hana.herokuapp.com/static/1.png)
 ![alt text](https://cv-website-hana.herokuapp.com/static/2.png)
 ![alt text](https://cv-website-hana.herokuapp.com/static/3.png)
-<img src="https://cv-website-hana.herokuapp.com/static/0.png" width="200" height="400" />
+<img src="https://cv-website-hana.herokuapp.com/static/0.png" width="500" height="400" />
