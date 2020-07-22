@@ -1,0 +1,548 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<title>Book Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+
+
+		<style>
+#gr_updates_widget{
+border-radius: 5px;
+background-color:#fff;
+border:solid #683205 10px;
+-webkit-box-shadow: 0px 0px 4px 1px #595959,
+inset 0px 0px 0px 1px #7D730B;
+-moz-box-shadow: 0px 0px 4px 1px #595959,
+inset 0px 0px 0px 1px #7D730B;
+box-shadow: 0px 0px 4px 1px #595959,
+inset 0px 0px 0px 1px #7D730B;
+padding:15px 0 35px 15px;
+width:250px;
+height:330px;
+}
+#gr_footer{
+margin-bottom:10px;
+}
+#gr_updates_widget p{
+padding:0px;
+margin:0;
+font-size:14px;
+}
+#gr_footer img{
+width:100px;
+float:left;
+}
+#gr_updates_widget img{
+	border-style:none;
+}
+</style>
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo" style="padding_left:200px"><a href="#">Book Analysis<span>by HANAA ZAQOUT</span></a></div>
+			</header>
+
+		<!-- Main -->
+			<section id="main">
+
+				<div class="inner">
+				<section id="three" class="wrapper">
+						<div class="spotlight">
+							<div class="image flush"><img src="{{img}}" height="400" alt="" /></div>
+							<div class="inner">
+								<h3>{{data}}</h3>
+									<p>The total number of tweets :
+								    {{total_tweets}}</p>
+								  	<p>The total number of likes :
+								    {{total_likes}}</p>
+								  	<p>The total number of retweets :
+								    {{total_retweets}}</p>
+						
+							</div>
+						</div>
+				<!-- One -->
+					<section id="one" class="wrapper style1">
+
+						<div class="image fit flush">
+							
+						</div>
+						<header class="special">
+							<h2>{{data}} Book Data Analysis!!</h2>
+						<!--	<p>vehicula urna sed justo bibendum</p>-->
+						</header>
+						<div class="content">
+							<canvas id="bubble-chart" width="85%" height="40%"></canvas>
+
+						</div>
+						<div class="spotlight">
+							<div class="image flush">
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="locChart"></canvas>
+  								</div>
+							</div>
+							<div class="image flush">
+								
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="timeChart"></canvas>
+  								</div>
+							</div>
+						</div>
+						<div class="spotlight">
+							<div class="image flush">
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="sorChart"></canvas>
+  								</div>
+							</div>
+							<div class="image flush">
+								
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="langChart"></canvas>
+
+  								</div>
+							</div>
+						</div>
+						<div class="spotlight">
+							<div class="image flush">
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="likeChart"></canvas>
+  								</div>
+							</div>
+							<div class="image flush">
+								
+								<div class="container" style="width:90%; hieght:100%; ">
+    							<canvas id="reChart"></canvas>
+
+  								</div>
+							</div>
+						</div>
+					</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style2">
+						<header>
+							<h2>Vestibulum Convallis</h2>
+							<p>vehicula urna sed justo bibendum</p>
+						</header>
+						<div class="content">
+							<div class="gallery">
+								<div>
+									<div class="image fit flush">
+									
+									</div>
+								</div>
+								<div>
+									<div class="image fit flush">
+									
+									</div>
+								</div>
+								<div>
+									<div class="image fit flush">
+										
+									</div>
+								</div>
+								<div>
+									<div class="image fit flush">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				
+						<div class="spotlight alt">
+							<div class="image flush"></div>
+							<div  class="inner">
+								<h3>Curabitur Eget</h3>
+								<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula.</p>
+							</div>
+						</div>
+						<div class="spotlight">
+							<div class="inner">
+								<h3>Book Reviews from Goodreads!!</h3>
+								{% for i in range(10) %}
+								<div id="gr_updates_widget" style="width:90%">
+
+							 	<h1>{{comment[i][0]}}</h1>
+							 	<h1>{{comment[i][1]}}</h1>
+								<div id="gr_footer">
+								  <a href="https://www.goodreads.com/"><img alt="Goodreads: Book reviews, recommendations, and discussion" rel="nofollow" src="https://www.goodreads.com/images/layout/goodreads_logo_140.png" /></a>
+								</div>
+							</div>
+							{% endfor %}
+
+							</div>
+							<div class="inner">
+								<h3>Top Tweets according to highest retweets!</h3>
+								  {% for i in range(7) %}
+							    <div>
+							    <blockquote class="twitter-tweet"><a href="https://twitter.com/{{name_re[i]}}/status/{{ide_re[i]}}" </blockquote>
+								    </div>
+								  {% endfor %}
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</sectio
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><span class="label"></span></a></li>
+						<li><span class="label"></span></a></li>
+						<li><span class="label"></span></a></li>
+						<li><span class="label"></span></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+
+
+<script>
+ 	var info = {{ info|tojson }}; 
+ 	var place= info['2']
+ 	var num= info['3']*10
+    let timeChart = document.getElementById('timeChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart1 = new Chart(timeChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['0'],
+        datasets:[{
+          label:'Tweets',
+          data:info['1'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'TimeChart',
+          fontSize:20,
+
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+    let locChart = document.getElementById('locChart').getContext('2d');
+
+    let massPopChart2 = new Chart(locChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['2'],
+        datasets:[{
+          label:'Tweets',
+          data:info['3'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'locationChart',
+          fontSize:20,
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+    let sorChart = document.getElementById('sorChart').getContext('2d');
+
+    let massPopChart3 = new Chart(sorChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['4'],
+        datasets:[{
+          label:'Tweets',
+          data:info['5'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'SourceChart',
+          fontSize:20,
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+     let langChart = document.getElementById('langChart').getContext('2d');
+
+    let massPopChart4 = new Chart(langChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['10'],
+        datasets:[{
+          label:'Tweets',
+          data:info['11'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'LanguageChart',
+          fontSize:20,
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+ let likeChart = document.getElementById('likeChart').getContext('2d');
+
+    let massPopChart5 = new Chart(likeChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['6'],
+        datasets:[{
+          label:'Tweets',
+          data:info['7'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'likeChart_x:likes for eachTweet',
+          fontSize:15,
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+    let reChart = document.getElementById('reChart').getContext('2d');
+
+    let massPopChart6 = new Chart(reChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:info['8'],
+        datasets:[{
+          label:'Tweets',
+          data:info['9'],
+          backgroundColor:'#bb8fa9',
+
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'RetweetsChart_x:retweets for eachTweet',
+          fontSize:13,
+        },
+        layout:{
+          padding:{
+            left:30,
+            right:30,
+ 
+          }
+        },
+        legend:{
+          display:false,
+          },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+ 
+
+    let bubble = document.getElementById('bubble-chart').getContext('2d');
+
+    let massPopChart7 =new Chart(document.getElementById("bubble-chart"), {
+    type: 'bubble',
+    data: {
+      labels: "Africa",
+      datasets: [
+        {
+          label: [place['0']],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 21269017,
+            y: 5.245,
+            r: num['0']
+          }]
+        }, {
+          label: [place['1']],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 258702,
+            y: 7.526,
+            r: num['1']
+          }]
+        }, {
+          label: [place['2']],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 3979083,
+            y: 6.994,
+            r: num['2']
+          }]
+        }, {
+          label: [place['3']],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 4931877,
+            y: 5.921,
+            r: num['3']
+          }]
+        },
+        {
+          label: [place['4']],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 493999,
+            y: 5.921,
+            r: num['4']
+          }]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'How much people love the book in different areas'
+      }, scales: {
+        yAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Polarity"
+          }
+        }],
+        xAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Subjectivity"
+          }
+        }]
+      }
+    }
+});
+
+  </script>
+
+
+			<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.poptrox.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
