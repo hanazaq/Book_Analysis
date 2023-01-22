@@ -3,8 +3,9 @@ Analyze readers' interactions to a given book on Twitter and Goodreads by search
 # Libraries:
 1_ Tweepy: collect data from Twitter  
 2_ Numpy and Pandas: clean, analyze, and preset data in quick charts and tables   
-3_ Flask with HTML and CSS: create website and link between the screens effectively   
-4_ Charts js: present charts on the website that are easy to read 
+3_ HTML and CSS: edit website's template 
+4_ Flask: link website's pages   
+4_ Charts js: present the charts on the website, easier to read 
 <br/>
 Screenshot from Book Analysis website, enjoy your jounrey ;D
 
